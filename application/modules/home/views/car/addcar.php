@@ -9,7 +9,7 @@
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Actions</a>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="<?=base_url('car/add')?>">Cars</a>
+      <a class="dropdown-item" href="<?=base_url('car/add')?>">Services</a>
       <a class="dropdown-item" href="<?=base_url('home/membership')?>">Membership</a>
       <!-- <a class="dropdown-item" href="#">Settings</a> -->
       <div class="dropdown-divider"></div>

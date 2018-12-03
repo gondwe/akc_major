@@ -1,3 +1,4 @@
+<div class="d-flex justify-content-center">
 <div class="card-deck mb-3 text-center">
         <div class="mb-4 shadow-sm m-3">
           <div class="card-header">
@@ -44,4 +45,5 @@
             <button type="button" class="btn btn-lg btn-block btn-success disabled">Get started</button>
           </div>
         </div>
+      </div>
       </div>

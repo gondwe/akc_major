@@ -9,32 +9,30 @@
 	<script src="<?=base_url("assets/js/bootstrap.min.js")?>" ></script>
 
 <title>Tripper</title>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-  <!-- <a class="navbar-brand text-light" href="#">TRIPPER</a> -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<div class="clearfix">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background: #9C27B0 !important;">
+  <a class="navbar-brand" href="<?=base_url('/')?>">BombaFLOW</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="<?=base_url('priceplans')?>">Pricing</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="<?=base_url('about')?>">About Us</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      
-	
     </ul>
   </div>
 		<li class="d-inline-block">
 			<a class="nav-link text-light" href="<?=base_url('auth/logout')?>"><i class="fa fa-sign-out"></i> Logout</a>
 		</li>
-	
 </nav>
+</div>
 
-<body class="mt-5">
+<body class="clearfix">
+<div class="m-3">
 
 
