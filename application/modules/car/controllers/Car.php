@@ -21,12 +21,25 @@ class Car extends MX_Controller {
 	}
 	
 
+	public function uploads($id){
+		$data = [];
+		serve("uploads",$data);
+	}
+	
+	
+
+	public function delpics($id,$id2){
+		$this->db->delete("uploads",["id"=>$id]);
+		redirect("car/uploads/".$id2);
+	}
+	
+
 	public function image($id){
 		$data = [];
 
 		if(!empty($_FILES)){
 				$config['upload_path']          = './assets/images/';
-                $config['allowed_types']        = 'jpg|png|jpeg';
+                $config['allowed_types']        = 'jpg|png|jpeg|jfif';
                 $config['max_size']             = 100;
                 $config['max_width']            = 1024;
                 $config['max_height']           = 768;
@@ -36,7 +49,7 @@ class Car extends MX_Controller {
                 if ( ! $this->upload->do_upload('upload'))
                 {
                         $error = array('error' => $this->upload->display_errors());
-						pf($error);
+						$data["error"] =$this->upload->display_errors() ;
 					}
 					else
 					{

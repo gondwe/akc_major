@@ -9,12 +9,13 @@ $data = $data ?? $this->db
 ->from("cars c")
 ->join("users u","u.id = c.uid", "left")
 ->join("hire h","u.id = h.carid", "inner")
+// ->join("uploads h","u.id = h.carid", "inner")
 ->get()
 ->result();
 
-// pf($data);
-
+$uc =  count($this->db->select("upload")->where("carid",$id)->get("uploads")->result());
 $this->load->view("card", ['data'=>$data]);
+
 
 ?>
 
@@ -25,6 +26,11 @@ $this->load->view("card", ['data'=>$data]);
   <input type="file" class="form-control-file" name='upload' id="exampleInputFile" aria-describedby="fileHelp">
   <small id="fileHelp" class="form-text text-muted"></small>
   <button type="submit" class='btn btn-success'>UPLOAD</button>
+<hr>
+<a href="<?=base_url('car/uploads/'.$id)?>" class="btn btn-info">EDIT UPLOADS <span class="badge badge-light"><?=$uc?></span></a>
+<p class='pt-3'>
+<?php if(isset($error)) pf($error); ?>
+</p>
 </div>
 <?=form_close()?>
 </div>
