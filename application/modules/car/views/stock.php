@@ -1,5 +1,13 @@
 <?php 
+    $id = $id ?? $this->session->user_id;
 
+    $cars = $this->db
+        ->select('c.id,c.name,c.seat,h.status')
+        ->where('c.uid',$id)
+        ->from("cars c")
+        ->join("hire h", 'h.carid = c.id','LEFT')
+        ->get()
+        ->result();
 ?>
 
 
@@ -7,22 +15,7 @@
   <a href="#" class="">
     <h4 class='m-3'>Stock</h4>
   </a>
-  <ol>
-    <li>
-        <a href="#" class="list-group-item list-group-item-action">
-            Toyota Land Cruiser, 
-            <span class='text-danger'>5 Seater</span>
-            <span class="badge badge-primary pull-right">On Hire</span>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="list-group-item list-group-item-action">
-            Subaru WRX, 
-            <span class='text-danger'>5 Seater</span>
-            <span class="px-2 rounded btn-success pull-right" onclick='hireme(this)'>Available</span>
-        </a>
-    </li>
-  </ol>
+<?php carList($cars); ?>
 </div>
 
 

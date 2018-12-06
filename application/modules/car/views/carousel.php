@@ -10,29 +10,11 @@ $default = "data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height
     
     
     <?php 
-      if(!empty($first)){
-        $uploaded = $first->upload;
-        $path = "assets/images/".$uploaded;
-        $file = base_url($path);
-        $src = file_exists($path) && $uploaded ? $file : $default;
-        echo '<div class="carousel-item active">
-                <img class="d-block w-100 " src="'.$src.'" alt="Slide 1" >
-              </div>';
-      }
 
-      $x = 2;
-
-      foreach($imgs as $img): 
-        $uploaded = $img->upload;
-        $path = "assets/images/".$uploaded;
-        $file = base_url($path);
-        $src = file_exists($path) && $uploaded ? $file : $default;
-        
+      if(!empty($first)){ imgLoop($first,'active'); }
+      foreach($imgs as $img){ imgLoop($img); }
+      
     ?>
-      <div class="carousel-item">
-        <img class="d-block w-100" src="<?=$src?>" alt="Slide <?=$x?>">
-      </div>
-    <?php $x++; endforeach; ?>
 
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

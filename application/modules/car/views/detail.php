@@ -15,10 +15,12 @@ $data = $data ?? $this->db
 
 $uc =  count($this->db->select("upload")->where("carid",$id)->get("uploads")->result());
 $this->load->view("card", ['data'=>$data]);
-
-
 ?>
+</div>
+</div>
 
+<?php  if(iownthiscar($id)){  ?>
+<div class="col-md-6 pull-left">
 <?=form_open_multipart("car/image/".$id);?>
 <h5 class="m-3">Add Images</h5>
 <div class="form-group ml-4">
@@ -34,3 +36,6 @@ $this->load->view("card", ['data'=>$data]);
 </div>
 <?=form_close()?>
 </div>
+<?php 
+
+}

@@ -14,6 +14,7 @@
       <textarea name="cardesc" class="form-control" id="exampleTextarea" rows="3"></textarea>
     </div>
     <div class="form-group col-md-4 pull-right">
+      <label for="exampleTextarea">Region</label>
         <select name="region" id="" class="form-control">
             <option value="Nairobi">Nairobi</option>
             <option value="Mombasa">Mombasa</option>

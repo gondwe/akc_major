@@ -21,6 +21,22 @@ class Car extends MX_Controller {
 	}
 	
 
+	public function hiresuccess($id){
+		$_POST["uid"] = $this->session->user_id;
+		if($this->db->insert('hire', $_POST)){ redirect('car/detail/'.$id); }
+	}
+	
+
+	public function hirecancel($id){
+		
+		$data["carid"] = $id;
+		$data["status"] = 1;
+		$data["uid"] = $this->session->user_id;
+
+		if($this->db->delete('hire', $data)){ redirect('car/detail/'.$id); }
+	}
+	
+
 	public function uploads($id){
 		$data = [];
 		serve("uploads",$data);
