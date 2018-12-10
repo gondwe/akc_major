@@ -5,12 +5,31 @@ class Home extends MX_Controller {
 
 	public function index()
 	{
-		// $list = $this->db->where('brother', $this->session->user_id)->get('santalist')->row('points');
-		// $data["refcount"] = $list === "" ? 0 : ($list === 0 ? $list + 1 : $list);
-		$data = [];
-		serve('dashboard', $data);
+		
+		serve('dashboard');
+
 	}
 
-	function priceplans(){serve("pricePlans"); }
-	function driver(){serve("drivers"); }
+	public function priceplans()
+	{
+		
+		serve("pricePlans"); 
+	
+	}
+
+	public function driver()
+	{
+	
+		serve("drivers"); 
+	
+	}
+
+	public function membership()
+	{
+
+		serve('membership');
+
+	}
+
+
 }

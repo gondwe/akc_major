@@ -10,7 +10,11 @@ foreach($data as $dat){
 ?>
 <div class="col-md-6">
 <div class="card mb-3">
-  <h5 class="card-header"><?=$dat->name?></h5>
+  <h5 class="card-header border-left"><?=$dat->name?>
+  <?php if($hired){ ?>
+    <small class="pull-right text-success">Booked <i class="fa fa-check-circle"></i></small>
+  <?php } ?>
+  </h5>
   <div class="card-body">
     <h5 class="card-title">Posted By <a href="<?=base_url('home/driver/'.$dat->uid)?>"><?=$dat->user?></a></h5>
     <h6 class="card-subtitle text-muted"><?=$dat->seat?> seater |  <div class="badge badge-primary"><?=$dat->region?></div></h6>

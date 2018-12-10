@@ -11,7 +11,7 @@
     <div class="dropdown-menu">
       <a class="dropdown-item" href="<?=base_url('car/add')?>">Cars</a>
       <a class="dropdown-item" href="<?=base_url('home/membership')?>">Membership</a>
-      <!-- <a class="dropdown-item" href="#">Settings</a> -->
+      <a class="dropdown-item" href="#">Settings</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#">FAQs</a>
     </div>
