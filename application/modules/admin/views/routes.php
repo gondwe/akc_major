@@ -4,7 +4,7 @@
 $t = new Tablo('routes');
 $t->formgrid(6,12,12);
 $t->aliases('names,route');
-$t->combos('town','select id, names from regions');
+$t->combos('town','select id, names from regions', $defTown);
 $t->ucase("names");
 $t->ucase("town");
 $t->formgrid(4,4,12);

@@ -5,6 +5,8 @@ $route['default_controller'] = 'home';
 $route['priceplans'] = 'home/priceplans';
 // $route['driver'] = 'home/driver';
 $route['admin/(:any)'] = 'admin/modx/$1';
+$route['booking/(:num)'] = 'services/booking/$1';
+$route['about'] = 'systems/about';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

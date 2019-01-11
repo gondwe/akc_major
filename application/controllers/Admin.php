@@ -58,11 +58,11 @@ class Admin extends MX_Controller {
     }
 
     protected function mods($active= 'cars'){
-        $mods = $this->modules();
-        
-        $active = $active;
+        $data['mods'] = $this->modules();
+        $data['defTown'] = $this->db->where('a','town')->get('config')->row('b');
+        $data['active'] = $active;
 
-        return ["mods"=>$mods,"active"=>$active];
+        return $data;   
     }
 
 
@@ -77,12 +77,45 @@ class Admin extends MX_Controller {
             "bind_routes",
             "schedule",
             "booking",
+            "config",
         ];
     }
 
 
-    public function config(){
-        // serve('config');
-        pf('testing');
+    public function save($prop,$value)
+    {
+        $this->db->where('a',$prop)->set('b',$value)->update('config');
+        return;
+    }
+
+
+    public function routeBound($id=null)
+    {
+    
+        if(is_null($id)) {echo '[{"id":"0","name":"SELECT ROUTE"}]'; }else{
+
+        $data = $this->db->where("b.route",$id)
+                ->select('c.id,ucase(c.name) name')
+                ->from("bindings b")
+                ->join("cars c", 'c.id = b.car')
+                ->get()->result();
+
+        echo json_encode($data);
+        }
+    }
+
+
+    public function stageBound($id=null)
+    {
+    
+        if(is_null($id)) {echo '[{"id":"0","name":"SELECT ROUTE"}]'; }else{
+
+        $data = $this->db->where("stage", $id)
+                ->select('c.id,ucase(c.names) name')
+                ->from("stages c")
+                ->get()->result();
+
+        echo json_encode($data);
+        }
     }
 }

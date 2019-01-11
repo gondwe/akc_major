@@ -13,6 +13,7 @@ class Tablo extends fieldsets{
 	protected $fieldnames;
 	protected $rowcount;
 	public $combos;
+	public $combosDef;
 	protected $view_hidden;
 	protected $cases;
 	protected $order_by = null;
@@ -87,7 +88,12 @@ public function tabloprops()
 	}
 
 	/* auto fill form combo boxes  */
-	public function combos($a,$b){ $data = is_array($b)? $b : $this->arrlist($b); $this->combos[strtolower($a)] = $data; }
+	public function combos($a,$b,$c=null){
+		$data = is_array($b)? $b : $this->arrlist($b); 
+		$this->combos[strtolower($a)] = $data; 
+		if(!is_null($c)) $this->combosDef[strtolower($a)] = $c; 
+	}
+	
 	public function button($i,$j){ $this->buttons[$i] = $j; }
 	public function ucase($fld){ $this->cases["$fld"] = "ucase"; }
 	function aliases($alias){ $al = explode(",",$alias); $this->aliases[current($al)] = end($al); }
@@ -369,6 +375,7 @@ public function tabloprops()
 	function combo_filter($d,$v){
 		if(isset($this->combos[$d->name]) && !in_array(strtolower($d->name),$this->reserved)){
 			$disabled = isset($this->values[$d->name])? "disabled=TRUE" : null;
+			$v = $this->combosDef[$d->name] ?? $v; 
 			echo "<select  $disabled name='$d->name' class='form-control' >";
 				foreach($this->combos[$d->name] as $i=>$j){
 					$selected = $i == $v ? "selected" : null;

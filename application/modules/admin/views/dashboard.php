@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-md-2">
         <?php 
-            foreach ($mods as $key => $value) { $btn = $value == $active ? "primary" : "info";
+            foreach ($mods as $key => $value) { $btn = $value == $active ? "primary" : "secondary";
                 echo "<a class='btn btn-$btn d-flex m-1' href='".base_url('admin/'.strtolower($value))."'>".strtoupper($value)."</a>";
             }
         ?>
