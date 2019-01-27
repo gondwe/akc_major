@@ -10,8 +10,25 @@ class Systems extends MX_Controller {
     {
         
         $this->load->model('System');
+
+        $this->load->model('Api');
     }
 
+    public function routes($town=null)
+    {
+    
+        $routes = $this->api->routes($town);
+
+        echo json_encode($routes);
+    
+    }
+
+    public function api($var, $value = null)
+    {
+
+        echo json_encode($this->Api->$var($value));
+
+    }
 
 
     public function combo($table, ...$where)
@@ -20,6 +37,7 @@ class Systems extends MX_Controller {
 
         echo json_encode($this->System->combo($table,$field,$where));
     }
+
 
     public function tests($param = 'dashboard') { serve('developer/'.$param); }
 

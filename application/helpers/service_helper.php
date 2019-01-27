@@ -1,5 +1,23 @@
 <?php 
 function serve($view, $data=[]){$ci = &get_instance();$ci->load->view("section/header", $data);$ci->load->view($view,$data);$ci->load->view("section/footer");}function beefSecurity(){ redirect("auth/logout"); }function pf($i){ echo "<pre>"; print_r($i); echo "</pre>"; }function notify($message){}
+function render($view, $data=[]){$ci = &get_instance(); $ci->load->view("section/header2", $data);$ci->load->view($view,$data);$ci->load->view("section/footer");}
+
+function get($sql){
+    $raw = this()->db->query($sql)->result();
+    
+    $res = current($raw);
+    $fields =  array_keys( (array) $res);
+    
+    if(count($fields) == 2){
+        $first = current($fields);
+        $last = end($fields);
+        return (Object) array_combine(array_column($raw,$first),array_column($raw,$last));
+    }
+    
+    return $raw;
+    
+}
+
 
 
 function imgLoop($arr, $active=null){

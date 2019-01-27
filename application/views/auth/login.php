@@ -4,13 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Tripper</title>
+	<title>Bomba</title>
 	
 	
 	<link rel="stylesheet" href="<?=site_url("assets/css/bootstrap.min.css") ?>" >
 	<link rel="stylesheet" href="<?=base_url("assets/css/font-awesome.min.css") ?>" >
 	<link rel="stylesheet" href="<?=base_url("assets/js/jquery-3.3.1.slim.min.js") ?>" >
 	<link rel="stylesheet" href="<?=base_url("assets/css/custom.css") ?>" >
+    <link href="<?=base_url('assets/images/favicon.png')?>" rel="icon" type="image/png">
+    <link href="<?=base_url('assets/images/favicon.png')?>" rel="shortcut icon">
 	
 	
 </head>
@@ -21,6 +23,7 @@
     <h1 class="text-danger text-center mt-5 pt-4 mx-md-5 display-4 pb-3" >BOMBA FLOW</h1>
 	<div class="row justify-content-center">
 		<div class="col-md-6 col-sm-10 col-lg-5 pb-5">
+    <a href="<?=base_url('welcome')?>"  class="btn alert-info btn-block"><i class="fa fa-dashboard"></i> Dashboard</a>
 
 
                     <!--Form with header-->
@@ -57,6 +60,7 @@
     <?php // echo lang('login_remember_label', 'remember');?>
     <?php // echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
     
+  
   </div>
 
   <!-- <div class="pull-right text-light"><a href="forgot_password" class="text-secondary"><?php echo lang('login_forgot_password');?></a></div> -->

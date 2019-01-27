@@ -54,7 +54,7 @@ class Admin extends MX_Controller {
         $data = $this->mods($active);
 
         serve("admin/dashboard",$data); 
-    
+        
     }
 
     protected function mods($active= 'cars'){
