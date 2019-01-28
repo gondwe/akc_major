@@ -25,12 +25,14 @@ class Tablo extends fieldsets{
 	public $sql;
 	// public $print = TRUE;
 	public $newButton = FALSE;
+	public $header = true;
 	public $sqlstring;
 	public $values = [];
 	public $pictures = [];
 	public $aliases = [];
 	// public $where;
 	public $edit = true;
+	public $tableid = 'example';
 	public $delete = true;
 	public $buttons = [];
 	public $lg = "4";
@@ -122,9 +124,9 @@ public function tabloprops()
 
 		if($this->newButton) $this->newButton('example','tabloPrinter','tablo');
 		
-		echo'<table id="example" data-name="{$this->table}" class="display striped" style="width:100%;">';
+		echo'<table id="'.$this->tableid.'" data-name="{$this->table}" class="display striped" style="font-size:13px; width:100%;">';
 		
-		$this->tableThead();
+		if($this->header) $this->tableThead();
 
 		echo "<tbody>";
 			$x = 1;
@@ -170,7 +172,7 @@ public function tabloprops()
 	</div>
 	</div>';
 
-	closeDataTables($display_links, $this->limit);
+	closeDataTables($display_links, $this->limit, $this->tableid);
 	dataTableModals();
 	}
 
@@ -205,7 +207,7 @@ public function tabloprops()
 	
 		echo "<thead class='bg-light'>";
 		echo "<tr id='tablohead' class='text-dark border-top'>";
-		echo "<th  style='border-right:1px solid #ddd;'>SNO</th>";
+		echo "<th  style='border-right:1px solid #ddd; width:10px'>SNO</th>";
 		foreach($this->fieldnames as $ff):
 			if(!in_array($ff,$this->reserved)){ $fg = strtolower($ff);
 				if($fg !== "scode") { $fh = isset($this->aliases[$fg]) ? $this->aliases[$fg] : $ff; echo "<th class='px-2'>".strtoupper(rxx($fh))."</th>"; }
@@ -262,10 +264,15 @@ public function tabloprops()
 	}
 	
 	/* create a new input form */
-	public function newform(){
+	public function newform($redirect=null){
 		$this->init();
+
+
 		$_SESSION["action"] = "insert";
-		echo "<form action='".base_url('crud/insert/'.$this->table)."' enctype='multipart/form-data' class='mx-md-1' method='post'>";
+		
+		$redirect = $redirect ? $redirect."/".$this.table : null;
+		
+		echo "<form action='".base_url('crud/insert/'.$this->table).'/'.$redirect."' enctype='multipart/form-data' class='mx-md-1' method='post'>";
 			/* call form fields */
 			$this->form_fields();
 			/* add hidden fields */

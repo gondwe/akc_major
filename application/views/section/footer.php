@@ -12,8 +12,6 @@
 
 <?php $this->load->view('section/parts/modals/modalscripts') ?>
 
-<?php $this->load->view('section/parts/animsition') ?>
-
 
 <script>
 

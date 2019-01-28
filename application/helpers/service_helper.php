@@ -87,24 +87,29 @@ function openDataTables(){
 }
 
 
-function closeDataTables($disp, $limit=25){
-    ?>
+function closeDataTables($disp, $limit=25, $tbid){
+    if($tbid == 'example'){
+        ?>
         <script src="<?=base_url('assets/js/jquery.dataTables.min.js')?>"></script>
+        <script>function dltr(url,id){ swaldel(url,id); }</script>
+        <?php
+    }
+    ?>
+        
         <script>
         var disp = "<?=$disp?>"
-        $(document).ready(function() { $("#example").DataTable({ 
+        $(document).ready(function() { $("#<?=$tbid?>").DataTable({ 
             pageLength:<?=$limit?>,
             searching:disp == 0 ? false:true,
             paging:disp == 0 ? false:true,
             ordering:disp == 0 ? false:true,
         }); } ); 
-        function dltr(url,id){ swaldel(url,id); }
         </script>
     <?php
 }
 
 
-function this(){ return $CI = & get_instance(); }
+function this(){ return $CI = &get_instance(); }
 
 function rxx($i){ return ucwords(strtolower(str_replace("_"," ",$i))); }
 
@@ -163,6 +168,8 @@ function activeModules($active, $modules, $base='config')
 }
 
 
+
+
 function publicProps($obj){
 
     $props = [];
@@ -174,4 +181,8 @@ function publicProps($obj){
     
     return $props;
   
+  }
+
+  function bal(){
+    return $bal = this()->db->where('uid',$_SESSION['user_id'])->get('walletPool')->row('amount')?? '0';
   }

@@ -4,6 +4,7 @@
 
 <div class="container">
     <div class="text-center">
+    <a href="<?=base_url('welcome')?>"  class="btn m-4 alert-info"><i class="fa fa-dashboard"></i> Dashboard</a>
 
         <div class="form-group">
         <select autofocus=true class="form-control" name="town" id="town">
@@ -40,7 +41,7 @@
             <span id="carded">Subaru Imprezza</span> ( <span id="capacity">4</span> Seater )</br>
             </p>    
             <hr>
-            <a  class="btn btn-primary" href="<?=base_url('bookcar')?>" role="button">BOOK</a>
+            <a  class="btn btn-primary" href="#" role="button">BOOK</a>
             <h3 class="alert-secondary pull-right" role="button">$<span id="fare"></span> </h3>
 
           </div>
@@ -107,6 +108,7 @@
                         $('#capcity').text(res.capacity);
                         $('#dept_time').text(res.dept_time);
                         $('#dept_town').text(res.stage);
+                        $('a').attr('href', "<?=base_url('bookcar/')?>" + res.id)
                     }
                     // console.log($.isEmptyObject(res));
                     

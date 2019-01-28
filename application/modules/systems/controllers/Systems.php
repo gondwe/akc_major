@@ -76,7 +76,7 @@ class Systems extends MX_Controller {
 
     public function about()
     {
-        echo "Bomba Services &copy 2018";
+        serve("about");
     }
 
 }

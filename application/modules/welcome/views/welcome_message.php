@@ -13,9 +13,13 @@
 			</a>
 		</div>
 		<div class="col-md-6 py-5">
-			<a href="<?= base_url('home') ?>" class="btn  btn-lg btn-success">
+			<a href="<?= base_url('auth/login') ?>" class="btn  btn-lg btn-success">
 				<i class="fa fa-truck"></i> 
 				Driver
+				</a>
+			<a href="<?= base_url('welcome/register') ?>" class="btn  btn-lg btn-success">
+				<!-- <i class="fa fa-truck"></i>  -->
+				SignUp
 				</a>
 		</div>
 	</div>

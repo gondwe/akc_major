@@ -77,6 +77,7 @@ class Admin extends MX_Controller {
             "bind_routes",
             "schedule",
             "booking",
+            "topup",
             "config",
         ];
     }
